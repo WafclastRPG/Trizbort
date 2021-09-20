@@ -922,8 +922,9 @@ namespace Trizbort.Domain.Elements {
       if (textBounds.Width > 0 && textBounds.Height > 0)
         if (!ApplicationSettingsController.AppSettings.DebugDisableTextRendering) {
           var tName = IsReference ? new TextBlock {Text = "To"} : mName;
-          var tSubtitle = IsReference ? new TextBlock {Text = ReferenceRoom.Name} : mSubTitle;
-          var RoomTextRect = tName.Draw(graphics, font, roombrush, textBounds.Position, textBounds.Size, XStringFormats.Center);
+          //var tSubtitle = IsReference ? new TextBlock {Text = ReferenceRoom.Name} : mSubTitle;
+          var tSubtitle = new TextBlock { Text = $"{Position.X}/{Position.Y}" };
+          var RoomTextRect = tName.Draw(graphics, font, roombrush, textBounds.Position, textBounds.Size, XStringFormats.Center);;
 
           // draw subtitle text
           var subTitleBrush = IsReference ? roombrush : (RoomSubtitleColor != Color.Transparent ? new SolidBrush(RoomSubtitleColor) : palette.SubtitleTextBrush);
